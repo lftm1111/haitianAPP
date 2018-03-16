@@ -12,10 +12,10 @@
 <div id="wrap" class="flex-wrap flex-vertical">
     <header id="header">
         <ul style="position:relative;">
-            <li class="border-b active" >首页</li>
-            <li class="border-b" >服务</li>
-            <li class="border-b" >商品</li>
-            <li class="border-b" >财税服务</li>
+            <li class="border-b active">首页</li>
+            <li class="border-b">服务</li>
+            <li class="border-b">商品</li>
+            <li class="border-b">财税服务</li>
         </ul>
         <img class="person-center" src="./image/icon/person.png" tapmode onclick="fnOpenPersonWin()"> <!-- 个人中心图片-->
     </header>
@@ -99,7 +99,6 @@
     function fnOpenPersonWin(){
         api.openWin({
             name: 'person_center',
-            // url: 'widget://html/person_center.html',
             url: './html/person_center.html',
             pageParam: {
                 name: 'test'

@@ -5,34 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>个人中心</title>
+    <title>云API</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
 
-<body class="server-order" style="relative">
-    <header class="top-bar">
+<body class="person">
+    <div class="back">
         <img class="top-back" src="../image/icon/back.png" tapmode onclick="api.closeWin()">
-        <span class="top-title">个人中心</div>
-    </header>
-    <section class="interface-body">
-        个人中心
-    </section>
+    </div>
+    <div class="bg">
+        <img src="../image/person_bg.png">
+    </div>
+    <div class="content">
+        <div class="head_img text-center">
+            <img src="../image/head_img.jpg" style="">
+            <h4>小寒</h4>
+        </div>
+        <div class="server">
+            <li>
+                <img src="../image/icon/datum.png" alt=""><br/>
+                <span>个人资料</span>
+            </li>
+            <li>
+                <img src="../image/icon/server.png" alt=""><br/>
+                <span>个人资料</span>
+            </li>
+        </div>
+        <div class="server">
+            <li>
+                <img src="../image/icon/buy.png" alt=""><br/>
+                <span>个人资料</span>
+            </li>
+            <li>
+                <img src="../image/icon/company.png" alt=""><br/>
+                <span>个人资料</span>
+            </li>
+        </div>
+    </div>
 </body>
 
 </html>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
 <script type="text/javascript" src="../script/jquery-weui.min.js"></script>
-<script type="text/javascript" src="../script/main.js"></script>
 <script type="text/javascript">
     apiready = function() {
-        var header = $api.dom('header');
-        $api.fixStatusBar(header);
-        var headerH = $api.offset(header).h;
-        $('.interface-body').css('padding-top',headerH);
+        var winWidth = api.winWidth;
+        var contentWidth = $('.content').width();
+        $('.content').css({
+            left: (winWidth - contentWidth) / 2,
+            top: winWidth / 2.6
+        });
     }
-
 </script>
