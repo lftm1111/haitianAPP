@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>云API</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+
+<body class="server-order" style="relative">
+    <header class="top-bar">
+        <img class="top-back" src="../image/icon/back.png" alt="">
+        <span class="top-title">服务订单</div>
+    </header>
+    <section class="interface-body">
+        <li tapmode onclick="openOrderDetailWin()">
+            <h4>你好啊山东黄金看啥接电话就是简单回家撒谎的环境萨克的的还是卡活动结束看换届大会就卡死的回家撒谎度几乎是靠</h4>
+            <div class="time">2018-01-01 12:00</div>
+        </li>
+        <li>
+            <h4>你好啊山东黄金看啥接电话就是简单回家撒谎的环境萨克的的还是卡活动结束看换届大会就卡死的回家撒谎度几乎是靠</h4>
+            <div class="time">2018-01-01 12:00</div>
+        </li>
+        <li>
+            <h4>你好啊山东黄金看啥接电话就是简单回家撒谎的环境萨克的的还是卡活动结束看换届大会就卡死的回家撒谎度几乎是靠</h4>
+            <div class="time">2018-01-01 12:00</div>
+        </li>
+        <li>
+            <h4>你好啊山东黄金看啥接电话就是简单回家撒谎的环境萨克的的还是卡活动结束看换届大会就卡死的回家撒谎度几乎是靠</h4>
+            <div class="time">2018-01-01 12:00</div>
+        </li>
+        <li>
+            <h4>你好啊山东黄金看啥接电话就是简单回家撒谎的环境萨克的的还是卡活动结束看换届大会就卡死的回家撒谎度几乎是靠</h4>
+            <div class="time">2018-01-01 12:00</div>
+        </li>
+        <li>
+            <h4>你好啊山东黄金看啥接电话就是简单回家撒谎的环境萨克的的还是卡活动结束看换届大会就卡死的回家撒谎度几乎是靠</h4>
+            <div class="time">2018-01-01 12:00</div>
+        </li>
+
+    </section>
+</body>
+
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../script/main.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header');
+        $api.fixStatusBar(header);
+        var headerH = $api.offset(header).h;
+        $('.interface-body').css('padding-top',headerH);
+    }
+
+    // 打开详情页
+    function openOrderDetailWin(){
+        api.openWin({
+            name: 'server_order_detail',
+            url: './server_order_detail.html',
+            pageParam: {
+                name: 'server_order_detail',
+                order_detail_id:'15'
+            }
+        });
+    }
+
+</script>

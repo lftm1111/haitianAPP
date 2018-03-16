@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>服务</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+
+<body class="frame1 text-center">
+    <div class="repair">
+        <div>
+            <span class="caption">报修选项</span>
+        </div>
+        <div class="check">
+            <li>
+                <span>大类:</span>
+                <div class="right">
+                    <select>
+                        <option value ="大类一">大类一</option>
+                        <option value ="大类二">大类二</option>
+                        <option value="大类三">大类三</option>
+                    </select>
+                    <img class="icon-next" src="../image/icon/next.png">
+                </div>
+            </li>
+            <li>
+                <span>一级分类:</span>
+                <div class="right">
+                    <select>
+                        <option value ="一级分类1">一级分类1</option>
+                        <option value ="一级分类2">一级分类2</option>
+                        <option value="一级分类3">一级分类3</option>
+                    </select>
+                    <img class="icon-next" src="../image/icon/next.png" alt="">
+
+                </div>
+            </li>
+            <li>
+                <span>请选择产品:</span>
+                <div class="right">
+                    <select>
+                        <option value ="产品1">产品1</option>
+                        <option value ="产品1">产品2</option>
+                        <option value="产品3">产品3</option>
+                    </select>
+                    <img class="icon-next" src="../image/icon/next.png" alt="">
+                </div>
+            </li>
+            <li class="weui-row">
+                <textarea name="product-details" style="width:100%;height:120px;" placeholder="请输入详情描述"></textarea>
+            </li>
+        </div>
+    </div>
+    <div class="repair contacts">
+        <div>
+            <span class="caption">联系方式</span>
+        </div>
+        <div class="check">
+            <li>
+                <span>联系人:</span>
+                <div class="right">
+                    <input type="text" placeholder="请输入姓名">
+                </div>
+            </li>
+            <li>
+                <span>一级分类:</span>
+                <div class="right">
+                    <input type="text" placeholder="请输入联系方式">
+                </div>
+            </li>
+            <li>
+                <span>请选择地址:</span>
+                <div class="right">
+                    <input type="text" id="city-picker" />
+                    <img class="icon-next" src="../image/icon/next.png" alt="">
+                </div>
+            </li>
+            <li>
+                <textarea name="product-details" placeholder="请输入详情描述"></textarea>
+            </li>
+        </div>
+    </div>
+    <div>
+        <button type="button" class="submit-btn">立即找服务</button>
+    </div>
+    <div class="contact-num">
+        客服联系方式：0592-2082091
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<!-- <script type="text/javascript" src="../script/jquery-2.1.4.min.js"></script> -->
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../script/city-picker.min.js"></script>
+
+<script>
+    apiready = function() {
+
+    }
+    $("#city-picker").cityPicker({
+        title: "选择出发地",
+    });
+</script>
