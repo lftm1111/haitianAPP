@@ -21,27 +21,28 @@
     </div>
     <div class="content">
         <div class="head_img text-center">
-            <img src="../image/head_img.jpg" style="">
+            <img src="../image/head_img.jpg" >
+            <img src="../image/icon/head_icon.png">
             <h4>小寒</h4>
         </div>
         <div class="server">
-            <li>
+            <li tapmode onclick="personDatum()">
                 <img src="../image/icon/datum.png" alt=""><br/>
                 <span>个人资料</span>
             </li>
-            <li>
+            <li tapmode onclick="serverOrder()">
                 <img src="../image/icon/server.png" alt=""><br/>
-                <span>个人资料</span>
+                <span>服务订单</span>
             </li>
         </div>
         <div class="server">
-            <li>
+            <li tapmode onclick="purchased()">
                 <img src="../image/icon/buy.png" alt=""><br/>
-                <span>个人资料</span>
+                <span>已购买商品</span>
             </li>
-            <li>
+            <li tapmode onclick="bindCompany()">
                 <img src="../image/icon/company.png" alt=""><br/>
-                <span>个人资料</span>
+                <span>绑定企业</span>
             </li>
         </div>
     </div>
@@ -58,6 +59,48 @@
         $('.content').css({
             left: (winWidth - contentWidth) / 2,
             top: winWidth / 2.6
+        });
+    }
+
+    // 打开个人资料
+    function personDatum(){
+        api.openWin({
+            name: 'person_datum',
+            url: './person_datum.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+    // 打开服务订单
+    function serverOrder(){
+        api.openWin({
+            name: 'server_order',
+            url: './server_order.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+    }
+    // 打开已购买商品
+    function purchased(){
+        api.openWin({
+            name: 'purchased',
+            url: './purchased.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+    }
+    // 打开绑定企业
+    function bindCompany(){
+        api.openWin({
+            name: 'bind_company',
+            url: './bind_company.html',
+            pageParam: {
+                name: 'test'
+            }
         });
     }
 </script>

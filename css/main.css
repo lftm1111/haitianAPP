@@ -36,7 +36,11 @@ li{list-style:none;}
     width: 12px;
     padding: 0 15px;  /*扩大点击范围*/
 }
-
+.beam{
+    width: 100%;
+    height: 10px;
+    background: #eee;
+}
 
 .hide{
     display: none;
@@ -173,11 +177,7 @@ header ul li.active{ display: block; }
     margin: 0 0 20px;
     font-size: 16px;
 }
-.frame0 .beam{
-    width: 100%;
-    height: 10px;
-    background: #eee;
-}
+
 .frame0 .cooperate{
     padding-bottom:20px;
 }
@@ -235,8 +235,9 @@ header ul li.active{ display: block; }
     direction: rtl;
     font-size: 14px;
 }
-.frame1 .check li .icon-next{
+.icon-next{
     width: 20px;
+    height: 20px;
 }
 .frame1 .contacts input{
     text-align: right;
@@ -275,7 +276,6 @@ header ul li.active{ display: block; }
     margin: 10px;
     background: #f7f7f7;
     padding: 15px 10px;
-    ;
 }
 .server-order-detail .interface-body li {
     display: -webkit-flex;
@@ -292,7 +292,7 @@ header ul li.active{ display: block; }
 }
 .server-order-detail .btn {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 .server-order-detail .btn button:nth-child(1) {
     margin-right: 10px;
@@ -333,7 +333,7 @@ header ul li.active{ display: block; }
     border-radius: 20px;
 }
 
-/*person*/
+/*person-center*/
 .person{
     background: #eee;
 }
@@ -350,11 +350,14 @@ header ul li.active{ display: block; }
     background:#fff;width:85vw;height:116vw;position:absolute;
     border-radius: 10px;
 }
-.person .content .head_img{
+.head_img{
     margin: 6vw auto;
 }
-.person .content .head_img img{
-    width:20vw;border-radius:10vw;
+.head_img img:nth-child(1){
+    width:24vw;height: 24vw;border:5px solid #F0EFEF;border-radius:24vw;
+}
+.head_img img:nth-child(2){
+    width:20px;margin-left:-9vw;margin-bottom:1vw;
 }
 .person .server{
     display: flex;
@@ -364,9 +367,122 @@ header ul li.active{ display: block; }
     width: 50%;
     text-align: center;
     border:1px solid #eee;
-    height: 38vw;
+    height: 35vw;
 }
 .person .server li img{
     width: 50px;
     margin-top:25px;
+}
+
+/*person-data*/
+.person_datum .datum li{
+    display:flex;display:-webkit-flex;
+    padding:20px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.person_datum .datum li .left{
+    width: 30%;
+}
+.person_datum .datum li .right{
+    width: 70%;
+    text-align: right;
+    color: #888;
+}
+.person_datum .datum li .right img{
+    vertical-align: middle;
+}
+
+/*purchased*/
+.interface-body{
+    padding-bottom: 30px;
+}
+.purchased .order{
+    background: #eee;
+    padding:10px;
+    margin: -15px 0 25px;
+}
+.flex{
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+}
+.purchased .flex span{
+    width: 33%;
+}
+.purchased .flex span:nth-child(3){
+    text-align: right;
+}
+.purchased .order .btn{
+    text-align: right;
+}
+.purchased .order .btn button{
+    padding:8px 15px;
+    border:1px solid #777;
+    border-radius: 20px;
+    color: #777;
+    background: #fff;
+}
+.purchased .order .btn button:nth-child(2){
+    margin: 0 10px 0 20px;
+}
+
+/*apply-invoice*/
+.apply-invoice .interface-body{
+    padding: 10px;
+}
+.apply-invoice .title{
+    text-align: center;
+    padding:25px;
+}
+.apply-invoice .title span{
+    border: 1px solid #aaa;
+    padding:4px 25px;
+}
+.apply-invoice .info ul{
+    background: #f3f3f3;
+    padding:10px;
+}
+.apply-invoice .info ul li{
+    line-height: 32px;
+}
+.apply-invoice .info ul li span{
+    margin-right: 12px;
+}
+.apply-invoice .invoice li{
+    background: #eee;
+    margin-bottom: 12px;
+    padding:10px;
+}
+.apply-invoice .invoice li{
+    border:1px solid #dcdcdc;
+}
+.apply-invoice .invoice li input{
+    width: 100%;height: 25px;
+}
+.apply-invoice .submit-btn{
+    margin:40px;
+    padding:12px 45px;
+}
+
+/*submit-server-order*/
+.submit-server-order .bottom{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    display: -webkit-flex;
+    border-top: 1px solid #eee;
+}
+.submit-server-order .bottom span{
+    text-align: center;line-height: 60px;
+    font-size: 18px;
+}
+.submit-server-order .bottom span:nth-child(1){
+    flex:5;
+    color: #f22;
+}
+.submit-server-order .bottom span:nth-child(2){
+    flex:3;
+    background: #f3e728;
 }

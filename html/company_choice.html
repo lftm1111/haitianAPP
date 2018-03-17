@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>云API</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+<style>
+    .company_choice .interface-body{
+        margin: 20px 0 20px 20px;
+    }
+    .company_choice .search,.company_choice .company-list li{
+        display: flex;
+        display: webkit-flex;
+        flex-flow: row;
+    }
+    .company_choice .search span,.company_choice .company-list strong{
+        width: 70px;
+        text-align: center;
+        margin-top: 8px;
+        color:#646464;
+    }
+    .company_choice .company-list img{
+        width: 20px;
+    }
+
+    .company_choice .search li,.company_choice .company-list li span{
+        flex:1;
+        border:1px solid #dcdcdc;
+        padding:6px 8px;
+    }
+    .company_choice .company-list li{
+        border-bottom: 1px solid #eee;
+        height: 60px;
+        line-height: 60px;
+    }
+    .company_choice .company-list li span{
+        border:none;
+    }
+    .company_choice .search li img{
+        height: 14px;
+        margin-top: 3px;
+        margin-right: 8px;
+    }
+    .company_choice .search li input{
+        border-left:1px solid #dcdcdc;
+        border-radius: 0;
+        height: 18px;
+        width: 80%;
+        padding-left: 10px;
+    }
+</style>
+
+
+<body class="company_choice">
+    <header class="top-bar">
+        <img class="top-back" src="../image/icon/back.png" tapmode onclick="api.closeWin()">
+        <span class="top-title">企业查询</div>
+    </header>
+    <section class="interface-body">
+        <div class="search">
+            <li style="">
+                <img src="../image/icon/search.png" alt="">
+                <input type="text" placeholder="请输入查询企业">
+            </li>
+            <span>确认</span>
+        </div>
+        <div class="company-list">
+            <li>
+                <span>厦门青叶软件有限公司</span>
+            </li>
+        </div>
+        <div class="company-list">
+            <li>
+                <span>厦门青叶软件有限公司</span>
+                <strong><img src="../image/icon/tick.png" alt=""></strong>
+            </li>
+        </div>
+        <div class="company-list">
+            <li>
+                <span>厦门青叶软件有限公司</span>
+            </li>
+        </div>
+        <div class="company-list">
+            <li>
+                <span>厦门青叶软件有限公司</span>
+            </li>
+        </div>
+    </section>
+</body>
+
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+            // 适配顶栏和body
+            var header = $api.dom('header');
+            $api.fixStatusBar(header);
+            var headerH = $api.offset(header).h;
+            $('.interface-body').css('padding-top', headerH);
+        }
+        // 打开companyChoice窗口
+    function companyChoice() {
+        api.openWin({
+            name: 'company_choice',
+            url: './company_choice.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+</script>

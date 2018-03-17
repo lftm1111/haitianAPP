@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>云API</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+
+<body class="server-order-detail submit-server-order">
+    <header class="top-bar">
+        <img class="top-back" src="../image/icon/back.png" tapmode onclick="api.closeWin()">
+        <span class="top-title">提交服务订单</div>
+    </header>
+    <section class="interface-body">
+        <div class="product">
+            <li>
+                <strong class="text-right">大类:</strong>
+                <span>大类</span>
+        </li>
+        <li>
+            <strong class="text-right">一级分类:</strong>
+            <span>一级分类名称</span>
+        </li>
+        <li>
+            <strong class="text-right">产品名称:</strong>
+            <span>产品名称</span>
+        </li>
+        <li>
+            <strong class="text-right">描述:</strong>
+            <span>描述富华大厦卡浩丰科技爱德华解放后的数据库回复就好手机卡回复就好的撒客户富家大室积分和SD卡回复就好可接受的哈佛</span>
+        </li>
+        </div>
+        <div class="product">
+            <li>
+                <strong class="text-right">联系人:</strong>
+                <span>杨汉平</span>
+            </li>
+            <li>
+                <strong class="text-right">联系方式:</strong>
+                <span>18288887777</span>
+            </li>
+            <li>
+                <strong class="text-right">地址:</strong>
+                <span>福建省厦门市集美区乐安西里1999号211室</span>
+            </li>
+        </div>
+        <div class="bottom">
+            <span>￥:666.66</span>
+            <span tapmode onclick="payFrame()">立即支付</span>
+        </div>
+    </section>
+</body>
+
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var header = $api.dom('header');
+        $api.fixStatusBar(header);
+        var headerH = $api.offset(header).h;
+        $('.interface-body').css('padding-top', headerH);
+        // var MNActionButton = api.require('MNActionButton');
+    }
+
+    // 支付的frame
+    function payFrame() {
+        var MNActionButton = api.require('MNActionButton');
+        MNActionButton.open({
+            layout: {
+                row: 1,
+                col: 2,
+                rowSpacing: 5,
+                colSpacing: 10,
+                offset: 0
+            },
+            animation: true,
+            autoHide: false,
+            styles: {
+                maskBg: 'rgba(0,0,0,0.2)',
+                bg: '#fff',
+                cancelButton: {
+                    size: 44,
+                    bg: '#fff',
+                    icon: 'widget://image/icon/wxpay.png'
+                },
+                item: {
+                    titleColor: '#888',
+                    titleHighlight: 'dd2727',
+                    titleSize: 12
+                },
+                indicator: {
+                    color: '#c4c4c4',
+                    highlight: '#9e9e9e'
+                }
+            },
+            items: [{
+                icon: 'widget://image/icon/alipay.png',
+                highlight: 'widget://res/MNActionButton/0.png',
+                title: '支付宝支付'
+            }, {
+                icon: 'widget://image/icon/wxpay.png',
+                highlight: 'widget://res/MNActionButton/1.png',
+                title: '微信支付'
+            }]
+        }, function(ret) {
+            if (ret) {
+                if(ret.index == 0 || ret.index == 1){
+                    alert(ret.index);
+                }
+            }
+        });
+    }
+</script>

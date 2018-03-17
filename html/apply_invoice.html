@@ -12,25 +12,34 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
 
-<body class="bind-company">
+<body class="apply-invoice">
     <header class="top-bar">
         <img class="top-back" src="../image/icon/back.png" tapmode onclick="api.closeWin()">
-        <span class="top-title">绑定企业</div>
+        <span class="top-title">申请开票</div>
     </header>
     <section class="interface-body">
-        <div class="company-select" tapmode onclick="companyChoice()">
-            选择企业
-            <span class="company-right">
-                <span>厦门青叶软件有限公司</span>
-                <img src="../image/icon/next.png" alt="">
+        <div class="info">
+            <div class="title">
+                <span>基本信息</span>
             </div>
+            <ul>
+                <li><span>金额:</span>￥888.99</li>
+                <li><span>税号:</span>91350200999999999999</li>
+                <li><span>公司名:</span>厦门青叶软件有限公司</li>
+            </ul>
         </div>
-        <div class="business-licence">
-            <div class="font">上传营业执照</div>
-            <img src="../image/icon/camera.png" alt="">
-            <div>
-                <button type="button" class="submit-btn">提交</button>
+        <div class="invoice">
+            <div class="title">
+                <span>基本信息</span>
             </div>
+            <ul>
+                <li><input type="text" placeholder="请输入联系人"></li>
+                <li><input type="text" placeholder="请输入邮箱"></li>
+                <li><input type="text" placeholder="请输入手机号码"></li>
+            </ul>
+        </div>
+        <div class="text-center">
+            <button class="submit-btn">提交</button>
         </div>
     </section>
 </body>
@@ -46,16 +55,5 @@
         $api.fixStatusBar(header);
         var headerH = $api.offset(header).h;
         $('.interface-body').css('padding-top',headerH);
-    }
-    // 打开companyChoice窗口
-    function companyChoice(){
-        api.openWin({
-            name: 'company_choice',
-            url: './company_choice.html',
-            pageParam: {
-                name: 'test'
-            }
-        });
-
     }
 </script>

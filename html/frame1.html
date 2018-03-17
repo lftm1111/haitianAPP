@@ -87,7 +87,7 @@
         </div>
     </div>
     <div>
-        <button type="button" class="submit-btn">立即找服务</button>
+        <button type="button" class="submit-btn" tapmode onclick="submitServerOrder()">立即找服务</button>
     </div>
     <div class="contact-num">
         客服联系方式：0592-2082091
@@ -108,4 +108,15 @@
     $("#city-picker").cityPicker({
         title: "选择出发地",
     });
+
+    function submitServerOrder(){
+        api.openWin({
+            name: 'submit_server_order',
+            url: './submit_server_order.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
 </script>
