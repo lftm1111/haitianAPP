@@ -5,40 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>云API</title>
+    <title>支付成功</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css" />
     <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
-<body class="person_datum">
+
+<body class="pay-success">
     <header class="top-bar">
         <img class="top-back" src="../image/icon/back.png" tapmode onclick="api.closeWin()">
-        <span class="top-title">个人资料</div>
+        <span class="top-title">支付成功</div>
     </header>
-    <div class="interface-body">
-        <div class="head_img text-center">
-            <img src="../image/head_img.jpg">
-            <img src="../image/icon/head_icon.png">
-            <h4>我是一只鱼</h4>
-        </div>
-    </div>
-    <div class="beam"></div>
-    <div class="datum">
-        <li>
-            <span class="left">昵称</span>
-            <div class="right">林烽
-                <img style="vertical-align:middle" class="icon-next" src="../image/icon/next.png">
-            </div>
-        </li>
-        <li tapmode onclick="api.openWin({name:'modify_pwd', url:'./modify_pwd.html',})">
-            <span class="left">修改密码</span>
-            <div class="right">***
-                <img style="vertical-align:middle" class="icon-next" src="../image/icon/next.png">
-            </div>
-        </li>
-
-    </div>
+    <section class="interface-body">
+        <li><img src="../image/icon/pay_success.png" alt=""></li>
+        <li>支付成功</li>
+        <li>详情订单可在我的界面查看</li>
+        <li><span tapmode onclick="toPersonCenter()">返回个人中心</span></li>
+    </section>
 </body>
 
 </html>
@@ -53,15 +37,16 @@
         var headerH = $api.offset(header).h;
         $('.interface-body').css('padding-top',headerH);
     }
-
-    function a(){
+    function toPersonCenter(){
+        api.closeWin();
         api.openWin({
-            name: 'page1',
-            url: './page1.html',
+            name: 'index',
+            url: '../index.html',
             pageParam: {
                 name: 'test'
             }
         });
 
     }
+
 </script>

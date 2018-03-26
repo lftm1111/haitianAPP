@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>云API</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jquery-weui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+</head>
+
+<body class="product-details">
+    <img class="top-back-nobar" src="../image/icon/back.png" tapmode onclick="api.closeWin()">
+    <div class="product-img">
+        <img src="../image/product.png">
+    </div>
+    <div class="info">
+        <li><span>商品详情</span></li>
+        <li>Apple Watch Hermes</li>
+        <li>Apple Watch 是苹果公司于2014年9月公布的一款智能手表，有Apple Watch、Apple Watch Sport。</li>
+        <li>￥<span class="unit-price">888.66</span></li>
+    </div>
+    <div class="num">
+        <li>购买数量</li>
+        <li>
+            <span class="decrease" tapmode>-</span>
+            <span class="number">1</span>
+            <span class="increase">+</span>
+        </li>
+    </div>
+    <div class="bottom-pay">
+        <span>￥: <a class="sum">888.66</a></span>
+        <span tapmode onclick="payStyle()">立即支付</span>
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+    }
+    // 数量增减
+    $('.decrease').on('touchstart', function() {
+        $(this).css('background', '#f00');
+        var num = parseInt($('.number').text());
+        if (num > 1) {
+            $('.number').text(num - 1);
+            $('.sum').text(parseInt($('.number').text()) * parseFloat($('.unit-price').text()))
+        }
+    })
+    $('.increase').on('touchstart', function() {
+        $(this).css('background', '#f00');
+        var num = parseInt($('.number').text());
+        $('.number').text(num + 1);
+        $('.sum').text(parseInt($('.number').text()) * parseFloat($('.unit-price').text()))
+    })
+    $('.decrease,.increase').on('touchend', function() {
+        $(this).css('background', '#eee');
+    })
+
+
+    // 支付的frame
+    function payStyle() {
+        api.actionSheet({
+            title: '选择支付方式',
+            cancelTitle: '取消',
+            buttons: ['支付宝支付', '微信支付']
+        }, function(ret, err) {
+            var index = ret.buttonIndex;
+            if (index != 3) {
+                alert(index);
+            }
+        });
+    }
+</script>

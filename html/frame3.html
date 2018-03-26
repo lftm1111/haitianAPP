@@ -11,7 +11,7 @@
 </head>
 <body class="frame0 frame3">
     <div class="hot-product">
-        <li>
+        <li tapmode onclick="taxServerDetails()">
             <img src="../image/tax.jpg" alt="">
             <h4 class="product-title">财税服务名称一</h4>
             <p class="summary">这个是一个很牛逼的财税服务，你猜猜是什么。啊哈哈哈哈哈哈。。。。。</p>
@@ -32,3 +32,22 @@
     </div>
 </body>
 </html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+    }
+
+    function taxServerDetails(){
+        api.openWin({
+            name: 'tax_server_details',
+            url: './tax_server_details.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+</script>

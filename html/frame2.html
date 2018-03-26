@@ -11,19 +11,19 @@
 </head>
 <body class="frame0 frame2">
     <div class="hot-product">
-        <li>
+        <li tapmode onclick="productDetails()">
             <img src="../image/product.jpg" alt="">
             <h4 class="product-title">Apple Watch Hermes</h4>
             <p class="summary">Apple Watch 采用人造蓝宝石水晶屏幕与Force Touch触摸技术，有多种颜色可供选择。</p>
             <span class="price">￥:3330.33</span>
         </li>
-        <li>
+        <li tapmode onclick="productDetails()">
             <img src="../image/product.jpg" alt="">
             <h4 class="product-title">Apple Watch Hermes</h4>
             <p class="summary">Apple Watch 采用人造蓝宝石水晶屏幕与Force Touch触摸技术，有多种颜色可供选择。</p>
             <span class="price">￥:3330.33</span>
         </li>
-        <li>
+        <li tapmode onclick="productDetails()">
             <img src="../image/product.jpg" alt="">
             <h4 class="product-title">Apple Watch Hermes</h4>
             <p class="summary">Apple Watch 采用人造蓝宝石水晶屏幕与Force Touch触摸技术，有多种颜色可供选择。</p>
@@ -32,3 +32,22 @@
     </div>
 </body>
 </html>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
+<script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+    }
+    // 打开商品详情界面
+    function productDetails(){
+        api.openWin({
+            name: 'product_details',
+            url: './product_details.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+</script>

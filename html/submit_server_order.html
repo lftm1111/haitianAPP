@@ -50,9 +50,9 @@
                 <span>福建省厦门市集美区乐安西里1999号211室</span>
             </li>
         </div>
-        <div class="bottom">
+        <div class="bottom-pay">
             <span>￥:666.66</span>
-            <span tapmode onclick="payFrame()">立即支付</span>
+            <span tapmode onclick="payStyle()">立即支付</span>
         </div>
     </section>
 </body>
@@ -61,60 +61,28 @@
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
 <script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<!-- <script type="text/javascript" src="../script/fastclick-1.0.6.min.js"></script> -->
 <script type="text/javascript">
+    // $(function() {
+    //     FastClick.attach(document.body);
+    // });
     apiready = function() {
         var header = $api.dom('header');
         $api.fixStatusBar(header);
         var headerH = $api.offset(header).h;
         $('.interface-body').css('padding-top', headerH);
-        // var MNActionButton = api.require('MNActionButton');
     }
 
     // 支付的frame
-    function payFrame() {
-        var MNActionButton = api.require('MNActionButton');
-        MNActionButton.open({
-            layout: {
-                row: 1,
-                col: 2,
-                rowSpacing: 5,
-                colSpacing: 10,
-                offset: 0
-            },
-            animation: true,
-            autoHide: false,
-            styles: {
-                maskBg: 'rgba(0,0,0,0.2)',
-                bg: '#fff',
-                cancelButton: {
-                    size: 44,
-                    bg: '#fff',
-                    icon: 'widget://image/icon/wxpay.png'
-                },
-                item: {
-                    titleColor: '#888',
-                    titleHighlight: 'dd2727',
-                    titleSize: 12
-                },
-                indicator: {
-                    color: '#c4c4c4',
-                    highlight: '#9e9e9e'
-                }
-            },
-            items: [{
-                icon: 'widget://image/icon/alipay.png',
-                highlight: 'widget://res/MNActionButton/0.png',
-                title: '支付宝支付'
-            }, {
-                icon: 'widget://image/icon/wxpay.png',
-                highlight: 'widget://res/MNActionButton/1.png',
-                title: '微信支付'
-            }]
-        }, function(ret) {
-            if (ret) {
-                if(ret.index == 0 || ret.index == 1){
-                    alert(ret.index);
-                }
+    function payStyle() {
+        api.actionSheet({
+            title: '选择支付方式',
+            cancelTitle: '取消',
+            buttons: ['支付宝支付', '微信支付']
+        }, function(ret, err) {
+            var index = ret.buttonIndex;
+            if (index != 3) {
+                alert(index);
             }
         });
     }
