@@ -43,12 +43,10 @@
         $api.fixStatusBar($api.dom('header'));
         // 适配iPhoneX的底部栏
         $api.fixTabBar($api.byId('footer'));
-        // api.setStatusBarStyle({style:'light'});
+        api.setStatusBarStyle({style:'dark'});
         funIniGroup();
     }
 
-    api.setStatusBarStyle({style:'dark'});
-    
     //不同的tab切换不同的frame
     function funIniGroup() {
         var eHeaderLis = $api.domAll('header li'),
