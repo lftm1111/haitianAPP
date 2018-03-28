@@ -13,26 +13,26 @@
 </head>
 <style>
 
-
 </style>
+
 <body class="frame0">
     <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i4/TB10rkPGVXXXXXGapXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1kQI3HpXXXXbSXFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-      </div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="https://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i4/TB10rkPGVXXXXXGapXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="https://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1kQI3HpXXXXbSXFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
+        </div>
     </div>
     <div class="hot-product">
         <div class="title">推荐产品</div>
-        <li>
+        <li id="app">
             <img src="../image/product.jpg" alt="">
-            <h4 class="product-title">Apple Watch Hermes</h4>
-            <p class="summary">Apple Watch 采用人造蓝宝石水晶屏幕与Force Touch触摸技术，有多种颜色可供选择。</p>
+            <h4 class="product-title">{{name}}</h4>
+            <p class="summary">{{age}}</p>
             <span class="price">￥:3330.33</span>
         </li>
         <li>
-            <img src="../image/product.jpg" alt="">
+            <img src="../image/product.jpg">
             <h4 class="product-title">Apple Watch Hermes</h4>
             <p class="summary">Apple Watch 采用人造蓝宝石水晶屏幕与Force Touch触摸技术，有多种颜色可供选择。</p>
             <span class="price">￥:3330.33</span>
@@ -46,7 +46,7 @@
     </div>
     <div class="beam"></div>
     <div class="cooperate">
-        <div class="title">合作伙伴</div>
+        <div class="title" tapmode onclick="test()">合作伙伴</div>
         <img src="../image/cooprerate.png" alt="">
         <img src="../image/cooprerate.png" alt="">
         <img src="../image/cooprerate.png" alt="">
@@ -61,13 +61,63 @@
 
 </html>
 <!-- <script type="text/javascript" src="../script/jquery-2.1.4.min.js"></script> -->
+<script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript" src="../script/zepto-1.2.0.min.js"></script>
 <script type="text/javascript" src="../script/jquery-weui.min.js"></script>
+<script type="text/javascript" src="../script/vue-2.5.13.js"></script>
 <script type='text/javascript' src='../script/swiper.min.js'></script>
+<script type='text/javascript' src='../script/main.js'></script>
 <script type="text/javascript">
+    // apiready部分
     apiready = function() {
-
+        api.ajax({
+            url: 'http://htapp.windyet.com/api/test/index',
+            method: 'post',
+            data: {
+                values: {
+                    name: 'haha'
+                },
+            }
+        }, function(ret, err) {
+            if (ret) {
+                api.alert({
+                    msg: JSON.stringify(ret)
+                });
+            } else {
+                api.alert({
+                    msg: JSON.stringify(err)
+                });
+            }
+        });
     }
+
+    // 测试
+    function test(){
+        api.ajax({
+            url: 'http://htapp.windyet.com/api/test/index',
+            method: 'post',
+            data: {
+                values: {
+                    name: 'haha'
+                },
+            }
+        }, function(ret, err) {
+            if (ret) {
+                api.alert({
+                    msg: JSON.stringify(ret)
+                });
+            } else {
+                api.alert({
+                    msg: JSON.stringify(err)
+                });
+            }
+        });
+    }
+
+    // 执行vue里面的配置
+    frame0();
+
+    // 轮播图初始化
     $(".swiper-container").swiper({
         loop: true,
         autoplay: 2000
